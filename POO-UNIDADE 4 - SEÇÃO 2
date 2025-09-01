@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class CadastroUsuarios {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite seu nome completo: ");
+        String nome = scanner.nextLine();
+
+        String email;
+        while (true) {
+            System.out.print("Digite seu e-mail: ");
+            email = scanner.nextLine();
+            if (email.contains("@")) {
+                break;
+            } else {
+                System.out.println("E-mail inválido! Deve conter '@'. Tente novamente.");
+            }
+        }
+
+        String senha;
+        while (true) {
+            System.out.print("Digite sua senha (mínimo 6 caracteres): ");
+            senha = scanner.nextLine();
+            if (senha.length() >= 6) {
+                break;
+            } else {
+                System.out.println("Senha muito curta! Tente novamente.");
+            }
+        }
+
+        System.out.println("\n===== Dados do Usuário =====");
+        System.out.println("Nome: " + nome);
+        System.out.println("E-mail: " + email);
+        System.out.println("Senha: " + "*".repeat(senha.length()));
+    }
+}
