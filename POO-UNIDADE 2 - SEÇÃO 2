@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class CadastroNomes {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] nomes = new String[5];
+
+        for (int i = 0; i < nomes.length; i++) {
+            System.out.print("Digite o nome " + (i + 1) + ": ");
+            nomes[i] = sc.nextLine();
+        }
+
+        System.out.println("\n===== Nomes Cadastrados =====");
+
+        int i = 0;
+        while (i < nomes.length) {
+            System.out.println((i + 1) + " - " + nomes[i]);
+            i++;
+        }
+
+        sc.close();
+    }
+}
