@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Usuario {
+    private String nome;
+    private int nivelAcesso;
+
+    public Usuario(String nome, int nivelAcesso) {
+        this.nome = nome;
+        this.nivelAcesso = nivelAcesso;
+    }
+
+    public void verificarAcesso() {
+        switch (nivelAcesso) {
+            case 1:
+                System.out.println(nome + " → Acesso Administrativo");
+                break;
+            case 2:
+                System.out.println(nome + " → Acesso de Usuário Padrão");
+                break;
+            default:
+                System.out.println(nome + " → Acesso Negado");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Quantos usuários deseja cadastrar? ");
+        int qtd = sc.nextInt();
+        sc.nextLine();
+
+        Usuario[] usuarios = new Usuario[qtd];
+
+        for (int i = 0; i < qtd; i++) {
+            System.out.println("\nDigite os dados do usuário " + (i + 1) + ":");
+            System.out.print("Nome: ");
+            String nome = sc.nextLine();
+
+            System.out.print("Nível de acesso (1 = Admin, 2 = Padrão, outro = Negado): ");
+            int nivel = sc.nextInt();
+            sc.nextLine();
+
+            usuarios[i] = new Usuario(nome, nivel);
+        }
+
+        System.out.println("\n===== Resultados =====");
+        for (Usuario u : usuarios) {
+            u.verificarAcesso();
+        }
+
+        sc.close();
+    }
+}
