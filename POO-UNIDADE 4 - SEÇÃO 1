@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class SistemaNotas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double[] notas = new double[5];
+        double soma = 0;
+
+        for (int i = 0; i < notas.length; i++) {
+            System.out.print("Digite a nota do aluno " + (i + 1) + ": ");
+            notas[i] = scanner.nextDouble();
+            soma += notas[i];
+        }
+
+        double media = soma / notas.length;
+        System.out.println("\nMédia da turma: " + media);
+
+        System.out.println("Alunos acima da média:");
+        for (int i = 0; i < notas.length; i++) {
+            if (notas[i] > media) {
+                System.out.println("Aluno " + (i + 1) + " - Nota: " + notas[i]);
+            }
+        }
+
+        scanner.close();
+    }
+}
